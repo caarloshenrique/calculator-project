@@ -1,0 +1,238 @@
+@font-face {
+  font-family: Roboto;
+  src: url(../fonts/roboto.regular.ttf);
+}
+
+@font-face {
+  font-family: Roboto-Bold;
+  src: url(../fonts/roboto.bold.ttf);
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto";
+  font-size: 22px;
+  height: 100vh;
+  width: 100%;
+  color: black;
+  letter-spacing: 3px;
+}
+
+#calculator {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 100%;
+  background-image: url(../img/calc-wallpaper.jpg);
+  position: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.container {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-template-columns: 100%;
+  grid-template-rows: 5% 10% 85%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  margin-bottom: 10%;
+  margin-top: 10%;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.container:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+#display {
+  height: 8%;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+  background-color: #505050;
+  color: white;
+  overflow: hidden;
+  padding: 8px;
+  text-align: right;
+  font-size: 40px;
+  border-radius: 5px;
+}
+
+#clear {
+  grid-area: clear;
+}
+
+#one {
+  grid-area: one;
+}
+
+#two {
+  grid-area: two;
+}
+
+#three {
+  grid-area: three;
+}
+
+#multiplication {
+  grid-area: multiplication;
+  font-size: 25px;
+}
+
+#division {
+  grid-area: division;
+}
+
+#square {
+  grid-area: p_square;
+  font-size: 25px;
+}
+
+#four {
+  grid-area: four;
+}
+
+#five {
+  grid-area: five;
+}
+
+#six {
+  grid-area: six;
+}
+
+#subtraction {
+  grid-area: subtraction;
+}
+
+#percentage {
+  grid-area: percentage;
+  font-size: 25px;
+}
+
+#cube {
+  grid-area: cube;
+  font-size: 25px;
+}
+
+#seven {
+  grid-area: seven;
+}
+
+#eight {
+  grid-area: eight;
+}
+
+#nine {
+  grid-area: nine;
+}
+
+#addition {
+  grid-area: addition;
+  height: 224%;
+}
+
+#square-root {
+  grid-area: square_root;
+}
+
+#fraction {
+  grid-area: fraction;
+  font-size: 20px;
+}
+
+#signal {
+  grid-area: signal;
+}
+
+#zero {
+  grid-area: ow;
+}
+
+#decimal {
+  grid-area: ponto;
+}
+
+#equal {
+  grid-area: equal;
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  font-family: "Roboto-Bold";
+  font-size: 30px;
+  background-color: #b8b8b8;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.orange {
+  background-color: #fba01f;
+  color: white;
+}
+
+.orange:hover {
+  background-color: #fcb858;
+  border-color: #fcb858;
+}
+
+button:hover {
+  background-color: #cecece;
+  border-color: #cecece;
+}
+
+.components {
+  display: grid;
+  grid-template-columns: 12% 17.9% 17.9% 17.9% 12% 12%;
+  grid-template-rows: 50px 50px 50px 50px;
+  grid-column-gap: 2%;
+  grid-row-gap: 6%;
+  grid-template-areas:
+    "clear one two three multiplication division"
+    "p_square four five six subtraction percentage"
+    "cube seven eight nine addition square_root"
+    "fraction signal ow ponto addittion equal";
+}
+
+@media (min-width: 768px) {
+  #calculator {
+    grid-template-columns: 30% auto 30%;
+  }
+
+  .container {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  #display {
+    line-height: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  #calculator {
+    grid-template-columns: 2% auto 2%;
+  }
+
+  #display {
+    line-height: 65px;
+  }
+
+  .container {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  #fraction {
+    font-size: 15px;
+  }
+}
