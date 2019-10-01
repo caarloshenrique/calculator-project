@@ -56,7 +56,7 @@ body {
 }
 
 #display {
-  height: 8%;
+  height: auto;
   grid-template-columns: 100%;
   grid-template-rows: 100%;
   background-color: #505050;

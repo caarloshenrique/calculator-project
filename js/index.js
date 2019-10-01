@@ -75,15 +75,9 @@ document.getElementById("zero").addEventListener("click", function(){
 });
 
 document.getElementById("decimal").addEventListener("click", function(){
-    var conteudo = document.getElementById("display").innerHTML;
-    var controle = /../;
-    if (conteudo.search(controle) != -1){
-        var transcricao = conteudo.replace('..', '.');
-        document.getElementById("display").innerHTML = transcricao;
-    } else {
-        document.getElementById("display").innerHTML += ".";
-    }
-    cont++;
+    var conteudo = document.getElementById("display").innerHTML += ".";
+    var transcricao = conteudo.replace('..', '.');
+    document.getElementById("display").innerHTML = transcricao;
 });
 
 document.getElementById("addition").addEventListener("click", function(){
@@ -148,57 +142,69 @@ document.getElementById("percentage").addEventListener("click", function(){
 });
 
 document.getElementById("square-root").addEventListener("click", function(){
-    var valor = document.getElementById('display').innerHTML;
+    var valor = parseFloat(document.getElementById('display').innerHTML);
     var calc = Math.sqrt(parseFloat(valor));
-    imprimeResultado(calc);
+    if (isNaN(calc)){
+       var mensagem = document.getElementById("mensagem");
+       mensagem.innerHTML = 'No conjunto dos racionais não existe raiz de número negativo!';
+       abrirModal();
+    } else {
+		document.getElementById("display").innerHTML = calc;
+    }
 });
 
 document.getElementById("square").addEventListener("click", function(){
     var valor = document.getElementById('display').innerHTML;
     var calc = parseFloat(valor) * parseFloat(valor);
-    imprimeResultado(calc);
+    document.getElementById("display").innerHTML = calc;
 });
 
 document.getElementById("cube").addEventListener("click", function(){
     var valor = document.getElementById('display').innerHTML;
     var calc = parseFloat(valor) * parseFloat(valor) * parseFloat(valor);
-    imprimeResultado(calc);
+    document.getElementById("display").innerHTML = calc;
 });
 
 document.getElementById("fraction").addEventListener("click", function(){
     var valor = document.getElementById('display').innerHTML;
     if(valor == 0){
-        abrirModal();
+        var mensagem = document.getElementById("mensagem");
+       mensagem.innerHTML = 'Não é possível dividir por zero!';
+       abrirModal();
     }else{
         var calc = 1 / parseFloat(valor);
-        imprimeResultado(calc);
+        document.getElementById("display").innerHTML = calc;
     }
 });
 
 document.getElementById("signal").addEventListener("click", function(){
     var valor = document.getElementById('display').innerHTML;
     var calc = parseFloat(valor) * -1;
-    imprimeResultado(calc);
+    document.getElementById("display").innerHTML = calc;
     cont++;
 });
 
 document.getElementById("clear").addEventListener("click", function(){
     var valor = 0;
-    imprimeResultado(valor);
+    document.getElementById("display").innerHTML = valor;
     cont = 0;
 });
 
 document.getElementById("equal").addEventListener("click", function(){
     operacao = 0;
     var valor = document.getElementById('display').innerHTML;
+    //console.log(valor);
     var controle = / ÷ 0/;
     if (valor.search(controle) != -1){
+        var mensagem = document.getElementById("mensagem");
+        mensagem.innerHTML = 'Não é possível dividir por zero!';
         abrirModal();
         var valor = "0";
         imprimeResultado(valor);
     }
     var transcricao1 = valor.replace(/x/g,"*");
     var transcricao2 = transcricao1.replace(/÷/g,"/");
+	//console.log(transcricao2);
     var total = eval(transcricao2);
     imprimeResultado(total);
     if(aux == 1){
@@ -225,11 +231,18 @@ function verificarZeroInicial(valor){
     }
 }
 
-function imprimeResultado(resultado){
-    document.getElementById("display").innerHTML = resultado;
-}
-
 function percentual(resultado){
     var porcentagem = parseFloat(resultado[0]/100) * parseFloat(resultado[1]);
     imprimeResultado(porcentagem);
+}
+
+function imprimeResultado(resultado){
+    var controle = "";
+    var controle = controle + resultado;
+    console.log(controle);
+    if(controle.search(/./) != -1){
+        document.getElementById("display").innerHTML = parseFloat(resultado.toFixed(1));
+    } else {
+        document.getElementById("display").innerHTML = controle;
+    }   
 }
