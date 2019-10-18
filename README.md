@@ -1,5 +1,5 @@
 # Calculadora JavaScript
-:1234: Calculadora JavaScript desenvolvida para calcular operações básicas.
+:1234: Uma calculadora JavaScript desenvolvida para calcular operações matemáticas básicas.
 
 ### Home
 
