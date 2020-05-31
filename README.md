@@ -1,7 +1,7 @@
 # Calculadora JavaScript
 :1234: Uma calculadora JavaScript desenvolvida para calcular operações matemáticas básicas.
 
-### Home
+### :computer: Home
 <img src="/img/home.PNG">
 
 ## :rocket: Tecnologias utilizadas 
