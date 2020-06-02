@@ -1,4 +1,4 @@
-# Calculadora JavaScript
+# calculator-project
 :1234: Uma calculadora JavaScript desenvolvida para calcular operações matemáticas básicas.
 
 <img src="/img/home.PNG">
